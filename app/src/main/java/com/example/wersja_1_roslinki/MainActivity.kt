@@ -157,7 +157,7 @@ class MainActivity : AppCompatActivity() {
                 LoadQuery("%")
             })
             myView.ivEdit.setOnClickListener( View.OnClickListener {
-              //  GoToUpdate(moja_notatka)
+                GoToUpdate(moja_notatka)
 
             })
 
@@ -168,16 +168,16 @@ class MainActivity : AppCompatActivity() {
     fun GoToUpdate(note:Notki){
         var intent=Intent(this,AddNotes::class.java)
         intent.putExtra("ID",note.ID)
-        intent.putExtra("nazwa",note.NoteName)
+        intent.putExtra("dbNazwa",note.NoteName)
 
-        intent.putExtra("t_low",note.NoteTemp_low)
-        intent.putExtra("t_high",note.NoteTemp_high)
+        intent.putExtra("dbt_low",note.NoteTemp_low)
+        intent.putExtra("dbt_high",note.NoteTemp_high)
 
-        intent.putExtra("hum_low",note.NoteHum_low)
-        intent.putExtra("hum_high",note.NoteHum_high)
+        intent.putExtra("dbhum_low",note.NoteHum_low)
+        intent.putExtra("dbhum_high",note.NoteHum_high)
 
-        intent.putExtra("hum_gleby_low",note.NoteHum_gleby_low)
-        intent.putExtra("hum_gleby_high",note.NoteHum_gleby_high)
+        intent.putExtra("dbhum_gleby_low",note.NoteHum_gleby_low)
+        intent.putExtra("dbhum_gleby_high",note.NoteHum_gleby_high)
 
         startActivity(intent)
     }
