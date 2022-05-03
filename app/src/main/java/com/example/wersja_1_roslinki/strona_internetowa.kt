@@ -19,7 +19,7 @@ class strona_internetowa : AppCompatActivity()  {
 
         wb_webView.webViewClient = WebViewClient()
         wb_webView.apply {
-            loadUrl("https://google.com/")
+            loadUrl("http://192.168.4.1")
         }
     }
 

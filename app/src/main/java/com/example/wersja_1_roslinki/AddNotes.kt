@@ -1,12 +1,16 @@
 package com.example.wersja_1_roslinki
 
+import android.annotation.SuppressLint
 import android.content.ContentValues
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
+import android.widget.ProgressBar
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_add_notes.*
+import kotlinx.android.synthetic.main.notatka.*
 import java.lang.Exception
 
 class AddNotes : AppCompatActivity() {
@@ -32,6 +36,7 @@ class AddNotes : AppCompatActivity() {
         }
     }
 
+
     fun buAdd(view: View){
         var dbManager=DbManager(this)
 
@@ -46,6 +51,8 @@ class AddNotes : AppCompatActivity() {
 
         values.put("dbhum_gleby_low",wilg_pow_niska.text.toString())
         values.put("dbhum_gleby_high",wilg_pow_wys.text.toString())
+
+
 
         if(id==0) {
             val ID = dbManager.Insert(values)
@@ -66,5 +73,6 @@ class AddNotes : AppCompatActivity() {
                 Toast.makeText(this, "nie da sie zaktualizowac notki", Toast.LENGTH_LONG).show()
             }
         }
+
     }
 }

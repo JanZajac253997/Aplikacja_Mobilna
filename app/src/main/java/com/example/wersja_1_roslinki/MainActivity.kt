@@ -5,6 +5,7 @@ import android.app.PendingIntent.getActivity
 import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -18,10 +19,12 @@ import android.widget.TextView
 import android.widget.Toast
 import android.widget.Toast.LENGTH_LONG
 import android.widget.Toast.LENGTH_SHORT
+import androidx.annotation.RequiresApi
 import com.example.wersja_1_roslinki.R.layout.notatka
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.activity_strona_w.*
+import kotlinx.android.synthetic.main.notatka.*
 import kotlinx.android.synthetic.main.notatka.view.*
 
 
@@ -144,17 +147,27 @@ class MainActivity : AppCompatActivity() {
 
 
 
+        @RequiresApi(Build.VERSION_CODES.O)
         override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
             //Toast.makeText(baseContext, "test3", LENGTH_LONG).show();
             var myView=layoutInflater.inflate(R.layout.notatka,null)
             var moja_notatka=listNotesadapter[p0]
             myView.nazwa_notatki.text = moja_notatka.NoteName
-            myView.t_low.text = moja_notatka.NoteTemp_low.toString()
+            /*myView.t_low.text = moja_notatka.NoteTemp_low.toString()
             myView.t_high.text = moja_notatka.NoteTemp_high.toString()
             myView.h1_low.text = moja_notatka.NoteHum_low.toString()
             myView.h1_high.text = moja_notatka.NoteHum_high.toString()
             myView.h2_low.text = moja_notatka.NoteHum_gleby_low.toString()
             myView.h2_high.text = moja_notatka.NoteHum_gleby_high.toString()
+            */
+
+            myView.t_low.text = "1"
+            myView.t_high.text = "40"
+            myView.h1_low.text = "0"
+            myView.h1_high.text = "10"
+            myView.h2_low.text = "0"
+            myView.h2_high.text = "100"
+
             //Toast.makeText(baseContext, "test4", LENGTH_LONG).show();
 
             myView.ivDelete.setOnClickListener(View.OnClickListener {
@@ -167,6 +180,18 @@ class MainActivity : AppCompatActivity() {
                 GoToUpdate(moja_notatka)
 
             })
+
+            myView.progressBar.min=1
+            myView.progressBar.max=40
+            myView.progressBar.progress=4
+
+            myView.progressBar2.min=0
+            myView.progressBar2.max=10
+            myView.progressBar2.progress=4
+
+            myView.progressBar3.min=0
+            myView.progressBar3.max=100
+            myView.progressBar3.progress=4
 
             return myView
         }

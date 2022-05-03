@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -27,6 +28,14 @@
             android:hint="temp_low"
             android:text="temp_low" />
 
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="10" />
+
         <TextView
             android:id="@+id/t_high"
             android:layout_width="wrap_content"
@@ -35,11 +44,13 @@
             android:gravity="center"
             android:hint="temp_high"
             android:text="temp_high" />
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="30dp"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <TextView
@@ -48,8 +59,15 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:hint="hum_low"
+            android:hint="hum__low"
             android:text="hum_low" />
+
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="10" />
 
         <TextView
             android:id="@+id/h1_high"
@@ -57,13 +75,14 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:hint="hum_high"
+            android:hint="hum__high"
             android:text="hum_high" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="30dp"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <TextView
@@ -72,8 +91,15 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:hint="hum_gleby_low"
-            android:text="hum_gleby_low" />
+            android:hint="gleba_low"
+            android:text="gleba_low" />
+
+        <ProgressBar
+            android:id="@+id/progressBar3"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="10" />
 
         <TextView
             android:id="@+id/h2_high"
@@ -81,8 +107,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:hint="hum_gleby_high"
-            android:text="hum_gleby_high" />
+            android:hint="gleba_high"
+            android:text="gleba_high" />
     </LinearLayout>
 
     <LinearLayout
@@ -100,14 +126,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:icon="@android:drawable/ic_menu_delete" />
+            app:icon="@android:drawable/ic_menu_delete"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <Button
             android:id="@+id/ivEdit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:icon="@android:drawable/ic_menu_edit" />
+            app:icon="@android:drawable/ic_menu_edit"
+            tools:ignore="SpeakableTextPresentCheck" />
     </LinearLayout>
 
 </LinearLayout>
