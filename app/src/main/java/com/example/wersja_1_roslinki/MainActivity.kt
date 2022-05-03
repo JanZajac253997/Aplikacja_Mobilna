@@ -11,6 +11,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebViewClient
 import android.widget.BaseAdapter
 import android.widget.SearchView
 import android.widget.TextView
@@ -20,8 +21,8 @@ import android.widget.Toast.LENGTH_SHORT
 import com.example.wersja_1_roslinki.R.layout.notatka
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.view.*
+import kotlinx.android.synthetic.main.activity_strona_w.*
 import kotlinx.android.synthetic.main.notatka.view.*
-
 
 
 
@@ -31,7 +32,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         //listNotes.add(Notki(1,"tytul1",1,3,1,2,0,6))
         //listNotes.add(Notki(2,"tytul2",1,3,1,2,0,6))
         //listNotes.add(Notki(3,"tytul3",1,3,1,2,0,6))
@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity() {
 
         LoadQuery("%")
     }
+
 
     override fun onResume(){
         super.onResume()
@@ -107,6 +108,12 @@ class MainActivity : AppCompatActivity() {
             R.id.addNote->{
                 //idz do dodania notki
                 var intent = Intent(this,AddNotes::class.java)
+                startActivity(intent)
+            }
+
+            R.id.internet->{
+
+                var intent = Intent(this,strona_internetowa::class.java)
                 startActivity(intent)
             }
         }
@@ -181,4 +188,8 @@ class MainActivity : AppCompatActivity() {
 
         startActivity(intent)
     }
+
+
+
+
 }
